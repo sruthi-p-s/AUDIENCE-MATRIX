@@ -5,6 +5,8 @@
 
 ---
 
+**DEMO : https://audience-matrix-vwsy.onrender.com/**
+
 ## 1. Overview
 
 **AUDIENCE MATRIX** is an end-to-end, production-ready audience segmentation and personalization system engineered for OTT streaming platforms. Operating on multivariate subscriber telemetry (watch duration, session lengths, completion rates, weekend ratios, and genre affinities), **AUDIENCE MATRIX** leverages standardized **unsupervised KMeans clustering** to discover organic viewer cohorts and powers a multi-factor recommendation engine with transparent, explainable recommendations.
