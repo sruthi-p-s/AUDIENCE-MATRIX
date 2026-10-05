@@ -1,0 +1,150 @@
+{
+  "timestamp": "2026-10-05T13:12:00.493988+00:00",
+  "project": "AUDIENCE MATRIX",
+  "model_loaded": true,
+  "total_tests": 13,
+  "total_passed": 13,
+  "pass_rate_percent": 100.0,
+  "api_tests": {
+    "total": 5,
+    "passed": 5,
+    "pass_rate_percent": 100.0,
+    "details": [
+      {
+        "test_id": "high_engagement_viewer",
+        "name": "High-Engagement Sci-Fi/Action Viewer",
+        "passed": true,
+        "latency_ms": 2033.45,
+        "status_code": 200,
+        "segment_name": "Weekend Marathon Streamers",
+        "distance_to_centroid": 3.2321,
+        "recommendations_count": 5,
+        "error": null
+      },
+      {
+        "test_id": "casual_viewer",
+        "name": "Casual Quick-Bite Comedy Viewer",
+        "passed": true,
+        "latency_ms": 2054.8,
+        "status_code": 200,
+        "segment_name": "Casual Quick-Bite Streamers",
+        "distance_to_centroid": 0.644,
+        "recommendations_count": 5,
+        "error": null
+      },
+      {
+        "test_id": "genre_focused_viewer",
+        "name": "Intense Thriller Purist",
+        "passed": true,
+        "latency_ms": 2032.37,
+        "status_code": 200,
+        "segment_name": "Primetime Narrative Devotees",
+        "distance_to_centroid": 3.9668,
+        "recommendations_count": 5,
+        "error": null
+      },
+      {
+        "test_id": "balanced_viewer",
+        "name": "Multi-Genre Balanced Omnivore",
+        "passed": true,
+        "latency_ms": 2046.76,
+        "status_code": 200,
+        "segment_name": "Eclectic Multi-Genre Omnivores",
+        "distance_to_centroid": 1.1821,
+        "recommendations_count": 5,
+        "error": null
+      },
+      {
+        "test_id": "weekend_heavy_viewer",
+        "name": "Marathon Weekend Binge Viewer",
+        "passed": true,
+        "latency_ms": 2060.76,
+        "status_code": 200,
+        "segment_name": "Weekend Marathon Streamers",
+        "distance_to_centroid": 2.9802,
+        "recommendations_count": 5,
+        "error": null
+      }
+    ]
+  },
+  "edge_case_tests": {
+    "total": 8,
+    "passed": 8,
+    "pass_rate_percent": 100.0,
+    "details": [
+      {
+        "test_id": "empty_genres",
+        "description": "Empty genre list (top_genres=[])",
+        "expected_status": 400,
+        "actual_status": 400,
+        "passed": true,
+        "latency_ms": 2046.06,
+        "response_snippet": "{\"error\":\"Validation Error\",\"message\":\"Field 'top_genres' cannot be empty. Must include at least 1 genre.\"}\n"
+      },
+      {
+        "test_id": "unseen_genre",
+        "description": "Unsupported/unseen genre ('Horror', 'Documentary')",
+        "expected_status": 400,
+        "actual_status": 400,
+        "passed": true,
+        "latency_ms": 2057.52,
+        "response_snippet": "{\"error\":\"Validation Error\",\"message\":\"Invalid genre 'Horror'. Supported genres are: Action, Comedy, Thriller, Drama, Sc"
+      },
+      {
+        "test_id": "zero_watch_time",
+        "description": "Zero watch time (boundary case)",
+        "expected_status": 200,
+        "actual_status": 200,
+        "passed": true,
+        "latency_ms": 2022.71,
+        "response_snippet": "{\"distance_to_centroid\":4.3936,\"explanation\":\"Viewer 'edge_03' assigned to 'Casual Quick-Bite Streamers' based on viewin"
+      },
+      {
+        "test_id": "very_large_values",
+        "description": "Exorbitant watch time (>168 hrs/week)",
+        "expected_status": 400,
+        "actual_status": 400,
+        "passed": true,
+        "latency_ms": 2049.38,
+        "response_snippet": "{\"error\":\"Validation Error\",\"message\":\"Field 'watch_time_hours' exceeds weekly maximum (168 hours).\"}\n"
+      },
+      {
+        "test_id": "missing_field",
+        "description": "Missing completion_rate field",
+        "expected_status": 400,
+        "actual_status": 400,
+        "passed": true,
+        "latency_ms": 2059.61,
+        "response_snippet": "{\"error\":\"Validation Error\",\"message\":\"Missing required field: 'completion_rate'.\"}\n"
+      },
+      {
+        "test_id": "wrong_type",
+        "description": "Wrong type for numeric field ('eighteen')",
+        "expected_status": 400,
+        "actual_status": 400,
+        "passed": true,
+        "latency_ms": 2047.48,
+        "response_snippet": "{\"error\":\"Validation Error\",\"message\":\"Field 'watch_time_hours' must be a numerical value (got str).\"}\n"
+      },
+      {
+        "test_id": "negative_value",
+        "description": "Negative session duration (-45 mins)",
+        "expected_status": 400,
+        "actual_status": 400,
+        "passed": true,
+        "latency_ms": 2052.91,
+        "response_snippet": "{\"error\":\"Validation Error\",\"message\":\"Field 'avg_session_minutes' must be strictly positive.\"}\n"
+      },
+      {
+        "test_id": "malformed_json",
+        "description": "Corrupted non-JSON syntax payload",
+        "expected_status": 400,
+        "actual_status": 400,
+        "passed": true,
+        "latency_ms": 2050.27,
+        "response_snippet": "{\"error\":\"Bad Request\",\"message\":\"Malformed JSON payload provided.\"}\n"
+      }
+    ]
+  },
+  "overall_status": "PASSED"
+}

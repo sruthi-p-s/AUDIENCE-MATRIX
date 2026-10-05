@@ -1,0 +1,224 @@
+{
+  "selected_k": 4,
+  "feature_names": [
+    "watch_time_hours",
+    "avg_session_minutes",
+    "sessions_per_week",
+    "completion_rate",
+    "weekend_ratio",
+    "genre_diversity",
+    "action_affinity",
+    "comedy_affinity",
+    "thriller_affinity",
+    "drama_affinity",
+    "sci_fi_affinity"
+  ],
+  "cluster_names": {
+    "0": "Weekend Marathon Streamers",
+    "1": "Primetime Narrative Devotees",
+    "2": "Casual Quick-Bite Streamers",
+    "3": "Eclectic Multi-Genre Omnivores"
+  },
+  "cluster_descriptions": {
+    "0": "Long-duration weekend marathon viewers favoring immersive storylines, high completion, and high-intensity genres.",
+    "1": "Dedicated serialized drama and story-driven enthusiasts characterized by high completion rates and consistent evening sessions.",
+    "2": "Bite-sized mobile & snackable session viewers with low watch commitment and strong inclination toward light entertainment and comedy.",
+    "3": "High-frequency streaming enthusiasts who consume across all genre verticals with high weekly sessions and broad appetite."
+  },
+  "cluster_characteristics": {
+    "0": [
+      "Peak weekend ratio (63%)",
+      "Extended avg session duration (85 mins)",
+      "Top affinity for Action and Sci-Fi",
+      "High completion fidelity (85%)"
+    ],
+    "1": [
+      "Heavy Drama affinity (0.89)",
+      "High completion loyalty (88%)",
+      "Consistent weekly pacing (5.8 sessions/week)",
+      "Evening focus with moderate weekend ratio (36%)"
+    ],
+    "2": [
+      "Short agile viewing sessions (26 mins)",
+      "High preference for Comedy (0.84) and light formats",
+      "Moderate completion rate (58%)",
+      "Predominantly weekday commuter / evening viewing"
+    ],
+    "3": [
+      "High genre diversity score (4.5 of 5 genres)",
+      "High frequency streaming (8.4 sessions/week)",
+      "Balanced multi-genre profile across Drama, Action, and others",
+      "Resilient viewing habits spanning weekdays and weekends"
+    ]
+  },
+  "cluster_centroids_unscaled": {
+    "0": {
+      "watch_time_hours": 24.81373284794175,
+      "avg_session_minutes": 85.02637916549986,
+      "sessions_per_week": 5.256258751050126,
+      "completion_rate": 0.8502254270512462,
+      "weekend_ratio": 0.6272217866143938,
+      "genre_diversity": 2.7070848501820217,
+      "action_affinity": 0.8106821618594238,
+      "comedy_affinity": 0.257577149257911,
+      "thriller_affinity": 0.7259717166059928,
+      "drama_affinity": 0.36976197143657236,
+      "sci_fi_affinity": 0.8033553626435174
+    },
+    "1": {
+      "watch_time_hours": 17.533389929742388,
+      "avg_session_minutes": 54.711651053864166,
+      "sessions_per_week": 5.812822014051522,
+      "completion_rate": 0.8783899297423887,
+      "weekend_ratio": 0.36145901639344263,
+      "genre_diversity": 2.9437939110070257,
+      "action_affinity": 0.3489619437939109,
+      "comedy_affinity": 0.4012189695550351,
+      "thriller_affinity": 0.5517113583138173,
+      "drama_affinity": 0.8943354800936768,
+      "sci_fi_affinity": 0.3029537470725995
+    },
+    "2": {
+      "watch_time_hours": 6.792038523274478,
+      "avg_session_minutes": 26.113108614232218,
+      "sessions_per_week": 4.171268057784912,
+      "completion_rate": 0.5802247191011236,
+      "weekend_ratio": 0.3184489031567683,
+      "genre_diversity": 1.7501337613697203,
+      "action_affinity": 0.251422150882825,
+      "comedy_affinity": 0.8424526484751204,
+      "thriller_affinity": 0.2258255751738898,
+      "drama_affinity": 0.676581594435527,
+      "sci_fi_affinity": 0.20294649545211346
+    },
+    "3": {
+      "watch_time_hours": 19.519504437869823,
+      "avg_session_minutes": 48.07248520710059,
+      "sessions_per_week": 8.38653846153846,
+      "completion_rate": 0.7393498520710059,
+      "weekend_ratio": 0.42194082840236685,
+      "genre_diversity": 4.505917159763315,
+      "action_affinity": 0.6473402366863905,
+      "comedy_affinity": 0.6237403846153846,
+      "thriller_affinity": 0.6394829881656805,
+      "drama_affinity": 0.6830258875739645,
+      "sci_fi_affinity": 0.580616124260355
+    }
+  },
+  "cluster_sizes": {
+    "0": {
+      "count": 3571,
+      "percentage": 42.01
+    },
+    "1": {
+      "count": 1708,
+      "percentage": 20.09
+    },
+    "2": {
+      "count": 1869,
+      "percentage": 21.99
+    },
+    "3": {
+      "count": 1352,
+      "percentage": 15.91
+    }
+  },
+  "total_users": 8500,
+  "best_silhouette_score": 0.3808,
+  "inertia": 31222.42,
+  "balance_ratio": 0.379,
+  "k_sweep": [
+    {
+      "k": 2,
+      "inertia": 56599.64,
+      "silhouette_score": 0.3525,
+      "cluster_sizes": [
+        3680,
+        4820
+      ],
+      "balance_ratio": 0.763
+    },
+    {
+      "k": 3,
+      "inertia": 37837.81,
+      "silhouette_score": 0.3797,
+      "cluster_sizes": [
+        3575,
+        3054,
+        1871
+      ],
+      "balance_ratio": 0.523
+    },
+    {
+      "k": 4,
+      "inertia": 31222.42,
+      "silhouette_score": 0.3808,
+      "cluster_sizes": [
+        3571,
+        1708,
+        1869,
+        1352
+      ],
+      "balance_ratio": 0.379
+    },
+    {
+      "k": 5,
+      "inertia": 26642.79,
+      "silhouette_score": 0.3348,
+      "cluster_sizes": [
+        2010,
+        1708,
+        1869,
+        1351,
+        1562
+      ],
+      "balance_ratio": 0.672
+    },
+    {
+      "k": 6,
+      "inertia": 25827.22,
+      "silhouette_score": 0.2578,
+      "cluster_sizes": [
+        1706,
+        2010,
+        1005,
+        1351,
+        866,
+        1562
+      ],
+      "balance_ratio": 0.431
+    },
+    {
+      "k": 7,
+      "inertia": 25108.39,
+      "silhouette_score": 0.2218,
+      "cluster_sizes": [
+        1084,
+        972,
+        1530,
+        1706,
+        1351,
+        958,
+        899
+      ],
+      "balance_ratio": 0.527
+    },
+    {
+      "k": 8,
+      "inertia": 24404.0,
+      "silhouette_score": 0.1883,
+      "cluster_sizes": [
+        1087,
+        866,
+        1692,
+        648,
+        955,
+        718,
+        1529,
+        1005
+      ],
+      "balance_ratio": 0.383
+    }
+  ],
+  "trained_at": "2026-10-05T13:09:30.111531+00:00"
+}

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUDIENCE MATRIX — OTT Audience Segmentation & Personalization</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="matrix-grid-bg"></div>
+
+  <div class="app-container">
+    <!-- Brand Header -->
+    <header class="header-bar">
+      <div class="brand-wrapper">
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z"/>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <h1>AUDIENCE MATRIX</h1>
+          <p>Containerized OTT Audience Segmentation &amp; Personalization</p>
+        </div>
+      </div>
+
+      <div class="header-status-badge">
+        <span class="pulse-dot"></span>
+        <span id="system-status-text">Production Model Online</span>
+      </div>
+    </header>
+
+    <!-- 1. OVERVIEW SECTION -->
+    <section class="section-wrapper" id="overview-section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+            </svg>
+            System Overview
+          </div>
+          <div class="section-subtitle">Real-time telemetry and cluster convergence metrics</div>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Total Analyzed Users</div>
+          <div class="kpi-value" id="kpi-total-users">--</div>
+          <div class="kpi-detail">Reproducible telemetry records</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Audience Segments</div>
+          <div class="kpi-value" id="kpi-segments-count">--</div>
+          <div class="kpi-detail" id="kpi-segments-detail">Unsupervised KMeans clusters</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Silhouette Coefficient</div>
+          <div class="kpi-value" id="kpi-silhouette">--</div>
+          <div class="kpi-detail">High separation fidelity</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Selected K Parameter</div>
+          <div class="kpi-value" id="kpi-selected-k">--</div>
+          <div class="kpi-detail">Optimized for stability &amp; balance</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Inference Status</div>
+          <div class="kpi-value" style="color: #34D399;" id="kpi-status">HEALTHY</div>
+          <div class="kpi-detail">Endpoints active at /recommend</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. AUDIENCE SEGMENTS SECTION -->
+    <section class="section-wrapper" id="segments-section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            Discovered Audience Segments
+          </div>
+          <div class="section-subtitle">Behavioral cohorts derived from telemetry clustering</div>
+        </div>
+      </div>
+
+      <div class="segments-grid" id="segments-container">
+        <!-- Rendered dynamically by app.js -->
+        <div style="color: var(--text-muted); font-size: 14px;">Loading segment architecture...</div>
+      </div>
+    </section>
+
+    <!-- 3. AUDIENCE DNA SECTION -->
+    <section class="section-wrapper" id="dna-section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+            </svg>
+            Audience DNA Matrix
+          </div>
+          <div class="section-subtitle">Cluster centroid telemetry comparison across behavioral dimensions</div>
+        </div>
+      </div>
+
+      <div class="dna-card">
+        <table class="dna-table">
+          <thead>
+            <tr>
+              <th>Cohort Segment</th>
+              <th>Avg Watch Time</th>
+              <th>Avg Session Length</th>
+              <th>Weekly Sessions</th>
+              <th>Completion Rate</th>
+              <th>Weekend Share</th>
+              <th>Genre Diversity</th>
+            </tr>
+          </thead>
+          <tbody id="dna-table-body">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. TRY A VIEWER (Interactive Testing & Recommender) -->
+    <section class="section-wrapper" id="try-viewer-section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+            Try A Viewer
+          </div>
+          <div class="section-subtitle">Simulate real-time subscriber telemetry, classification, and personalization</div>
+        </div>
+      </div>
+
+      <div class="try-viewer-layout">
+        <!-- Interactive Form -->
+        <div class="form-panel">
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+            Quick Persona Presets
+          </div>
+          <div class="presets-container">
+            <button class="preset-btn" type="button" onclick="loadPreset('marathon')">Weekend Marathoner</button>
+            <button class="preset-btn" type="button" onclick="loadPreset('casual')">Casual Quick-Bite</button>
+            <button class="preset-btn" type="button" onclick="loadPreset('drama')">Primetime Drama</button>
+            <button class="preset-btn" type="button" onclick="loadPreset('omnivore')">Multi-Genre Omnivore</button>
+          </div>
+
+          <form id="recommend-form" onsubmit="handleRecommendSubmit(event)">
+            <div class="input-grid">
+              <div class="form-group">
+                <label class="form-label">
+                  User ID
+                  <span class="unit">string</span>
+                </label>
+                <input class="form-input" type="text" id="input-user-id" value="demo_viewer_001" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  Watch Time
+                  <span class="unit">hours/week</span>
+                </label>
+                <input class="form-input" type="number" step="0.5" id="input-watch-time" value="28.0" min="0" max="168" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  Avg Session Duration
+                  <span class="unit">minutes</span>
+                </label>
+                <input class="form-input" type="number" step="1" id="input-avg-session" value="85" min="5" max="720" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  Weekly Sessions
+                  <span class="unit">count</span>
+                </label>
+                <input class="form-input" type="number" step="1" id="input-sessions-week" value="5" min="0" max="100" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  Completion Rate
+                  <span class="unit">0.0 to 1.0</span>
+                </label>
+                <input class="form-input" type="number" step="0.01" id="input-completion-rate" value="0.88" min="0" max="1" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  Weekend Ratio
+                  <span class="unit">0.0 to 1.0</span>
+                </label>
+                <input class="form-input" type="number" step="0.01" id="input-weekend-ratio" value="0.75" min="0" max="1" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  Genre Diversity
+                  <span class="unit">1 to 5</span>
+                </label>
+                <input class="form-input" type="number" step="1" id="input-genre-diversity" value="3" min="1" max="5" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">
+                  Top Preferred Genres
+                  <span class="unit">Select 1 to 5</span>
+                </label>
+                <div class="genre-checkboxes">
+                  <label class="genre-pill-check">
+                    <input type="checkbox" name="genres" value="Action" checked> Action
+                  </label>
+                  <label class="genre-pill-check">
+                    <input type="checkbox" name="genres" value="Sci-Fi" checked> Sci-Fi
+                  </label>
+                  <label class="genre-pill-check">
+                    <input type="checkbox" name="genres" value="Thriller"> Thriller
+                  </label>
+                  <label class="genre-pill-check">
+                    <input type="checkbox" name="genres" value="Drama"> Drama
+                  </label>
+                  <label class="genre-pill-check">
+                    <input type="checkbox" name="genres" value="Comedy"> Comedy
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="btn-submit">Execute Segmentation &amp; Personalization</button>
+          </form>
+        </div>
+
+        <!-- Result Panel -->
+        <div class="result-panel">
+          <div class="result-placeholder" id="result-placeholder">
+            <svg viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+            <div>Submit subscriber telemetry to preview segmentation classification and personalized recommendations.</div>
+          </div>
+
+          <div class="result-content" id="result-content">
+            <div class="result-segment-header">
+              <div class="result-segment-title">
+                <span id="res-segment-name">--</span>
+                <span class="segment-id-tag" id="res-segment-id">ID: --</span>
+              </div>
+              <div style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;" id="res-segment-desc">
+                --
+              </div>
+              <div class="result-metrics-bar">
+                <div>Distance to Centroid: <span class="val" id="res-distance">--</span></div>
+                <div>User ID: <span class="val" id="res-user-id">--</span></div>
+              </div>
+            </div>
+
+            <div class="result-explanation-box" id="res-explanation">
+              --
+            </div>
+
+            <div>
+              <div class="recommendations-title">Ranked Content Personalization</div>
+              <div class="recommendation-cards" id="res-recommendations-list">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. MODEL QUALITY & 6. ROBUSTNESS SECTION -->
+    <div class="dual-analytics-grid">
+      <!-- 5. MODEL QUALITY -->
+      <section class="analytics-card" id="model-quality-section">
+        <div class="section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+          </svg>
+          Model Quality &amp; K-Sweep
+        </div>
+        <div class="section-subtitle">Hyperparameter sweep from K=2 through K=8</div>
+
+        <table class="k-table">
+          <thead>
+            <tr>
+              <th>Clusters (K)</th>
+              <th>Inertia</th>
+              <th>Silhouette Score</th>
+              <th>Cluster Balance</th>
+            </tr>
+          </thead>
+          <tbody id="k-sweep-body">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 6. ROBUSTNESS & EVALUATOR -->
+      <section class="analytics-card" id="robustness-section">
+        <div class="section-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+          </svg>
+          Automated Robustness &amp; Validation
+        </div>
+        <div class="section-subtitle">Real test suite results from containerized evaluator</div>
+
+        <div class="robustness-kpi-row" style="margin-top: 14px;">
+          <div class="robust-metric-box">
+            <div class="label">Persona Tests</div>
+            <div class="val" id="rob-api-tests">--/--</div>
+            <div class="kpi-detail test-badge-pass" id="rob-api-rate">--% Passed</div>
+          </div>
+          <div class="robust-metric-box">
+            <div class="label">Edge-Case Tests</div>
+            <div class="val" id="rob-edge-tests">--/--</div>
+            <div class="kpi-detail test-badge-pass" id="rob-edge-rate">--% Passed</div>
+          </div>
+        </div>
+
+        <div style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 8px;">
+          Live Test Ledger
+        </div>
+        <div class="test-list" id="rob-test-list">
+          <div style="color: var(--text-muted);">Awaiting evaluator execution...</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <strong>AUDIENCE MATRIX</strong> &mdash; Containerized OTT Audience Segmentation &amp; Personalization
+      <div style="margin-top: 4px; color: var(--text-muted);">
+        Enterprise Unsupervised Machine Learning Pipeline &bull; Deterministic Scaled KMeans &bull; Production REST Engine
+      </div>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

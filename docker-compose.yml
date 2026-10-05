@@ -1,0 +1,51 @@
+services:
+  trainer:
+    build:
+      context: .
+      dockerfile: trainer/Dockerfile
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    environment:
+      - PORT=5000
+      - MODELS_DIR=/app/models
+      - DATA_DIR=/app/data
+      - CATALOG_PATH=/app/api/recommendation_catalog.json
+      - METRICS_PATH=/app/models/metrics.json
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 6
+      start_period: 4s
+    depends_on:
+      trainer:
+        condition: service_completed_successfully
+
+  evaluator:
+    build:
+      context: .
+      dockerfile: evaluator/Dockerfile
+    volumes:
+      - ./models:/app/models
+    environment:
+      - API_HOST=api
+      - API_PORT=5000
+      - METRICS_OUTPUT=/app/models/metrics.json
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      api:
+        condition: service_healthy
